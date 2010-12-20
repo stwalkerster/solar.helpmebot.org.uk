@@ -1,4 +1,5 @@
 <?php
+require_once("config.php");
 
 $smarty = new Smarty();
 $smarty->template_dir = $s_templateDir;
