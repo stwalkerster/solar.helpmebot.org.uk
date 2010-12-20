@@ -12,3 +12,5 @@ $s_compileDir = $baseScriptPath . '/smartycompile/';
 $s_templateDir = $baseScriptPath . '/template/';
 $s_configDir = $baseScriptPath . '/smartyconfig/';
 
+
+require_once($baseScriptPath . 'smarty/Smarty.class.php');
