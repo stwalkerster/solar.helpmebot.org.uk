@@ -17,10 +17,6 @@
 * know what you're doing.                                                 *
 **************************************************************************/
 
-// check that this code is being called from a valid entry point. 
-if(!defined("WARS"))
-	die("Invalid code entry point!");
-
 class PageMain extends PageBase
 {
 	function __construct()
