@@ -34,7 +34,7 @@ class PageMain extends PageBase
 			$queries[] = array("query"=>$query,"series"=>$yesterday);
 		}
 		
-		$graphs = createGraphs($queries);
+		$graphs = createGraph($queries);
 		
 		$this->smarty->assign('graphlist', $graphs);
 		$this->smarty->assign('content', 'MainPage.tpl');
