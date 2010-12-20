@@ -136,11 +136,11 @@ abstract class PageBase
 				
 				if(!file_exists($chartname))
 				{
-					$Test = new pChart(700,280);
+					$Test = new pChart(500,280);
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",8);
-					$Test->setGraphArea(50,30,680,200);
-					$Test->drawFilledRoundedRectangle(7,7,693,273,5,240,240,240);
-					$Test->drawRoundedRectangle(5,5,695,275,5,230,230,230);
+					$Test->setGraphArea(50,30,480,200);
+					$Test->drawFilledRoundedRectangle(7,7,493,273,5,240,240,240);
+					$Test->drawRoundedRectangle(5,5,495,275,5,230,230,230);
 					$Test->drawGraphArea(255,255,255,TRUE);
 					$Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,45,2);
 					$Test->drawGrid(4,TRUE,230,230,230,50);

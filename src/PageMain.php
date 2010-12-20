@@ -30,12 +30,11 @@ class PageMain extends PageBase
 			
 			$yesterday =date("Y-m-d", mktime(0,0,0,date("m"),date("d")+ $i,date("Y")));
 			$query = 'SELECT TIME(timestamp) AS x, generation as y FROM `solar`.`hourlydata` WHERE timestamp LIKE "'.$yesterday.'%";';
-			echo $query . "<br />\n";
+			
 			$queries[] = array("query"=>$query,"series"=>$yesterday);
 		}
 		
 		$graphs = PageBase::createGraph($queries);
-		print_r($graphs);
 		$this->smarty->assign('graphlist', $graphs);
 		$this->smarty->assign('content', 'MainPage.tpl');
 	}
