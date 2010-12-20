@@ -29,13 +29,13 @@ class PageMain extends PageBase
 		for ($i = -1; $i > -8; $i--) {
 			
 			$yesterday =date("yyyy-MM-dd", mktime(0,0,0,date("M"),date("d")+ $i,date("yyyy")));
-			$query = 'SELECT * FROM `solar`.`hourlydata` WHERE timestamp LIKE "'.$yesterday.'%"';
-			
+			$query = 'SELECT * FROM `solar`.`hourlydata` WHERE timestamp LIKE "'.$yesterday.'%";';
+			echo $query . "<br />\n";
 			$queries[] = array("query"=>$query,"series"=>$yesterday);
 		}
 		
 		$graphs = PageBase::createGraph($queries);
-		
+		print_r($graphs);
 		$this->smarty->assign('graphlist', $graphs);
 		$this->smarty->assign('content', 'MainPage.tpl');
 	}
