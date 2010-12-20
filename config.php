@@ -15,11 +15,7 @@ $s_compileDir = $baseScriptPath . '/smartycompile/';
 $s_templateDir = $baseScriptPath . '/template/';
 $s_configDir = $baseScriptPath . '/smartyconfig/';
 
-function __autoload($class)
-{
-	global $baseIncludePath;
-	require_once($baseIncludePath.$class.".php");
-	echo $baseIncludePath.$class.".php";
-}
 
+require_once($baseIncludePath . 'PageBase.php');
+require_once($baseIncludePath . 'PageMain.php');
 require_once($baseScriptPath . 'smarty/Smarty.class.php');
