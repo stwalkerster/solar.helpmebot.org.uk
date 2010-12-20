@@ -44,7 +44,7 @@ abstract class PageBase
 		$this->smarty->assign('documenttitle', $this->title);
 		$this->smarty->assign('pagetitle', $this->title);
 
-		$this->smarty->display('Main.tpl');
+		$this->smarty->display('main.tpl');
 	}
 
 	/**
