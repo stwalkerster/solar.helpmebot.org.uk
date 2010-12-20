@@ -19,6 +19,7 @@ function __autoload($class)
 {
 	global $baseIncludePath;
 	require_once($baseIncludePath.$class.".php");
+	echo $baseIncludePath.$class.".php";
 }
 
 require_once($baseScriptPath . 'smarty/Smarty.class.php');
