@@ -152,10 +152,10 @@ abstract class PageBase
 				"21:00", "", "", "", "", "",
 				"22:00", "", "", "", "", "",
 				"23:00", "", "", "", "", "",
-				),"Name");
+				),"XLabel");
 
 				$DataSet->AddAllSeries();
-				$DataSet->SetAbsciseLabelSerie();
+				$DataSet->SetAbsciseLabelSerie("XLabel");
 
 				$chartname = md5(serialize($DataSet));
 				$imagehashes[] = array($chartname, $q['series']);
