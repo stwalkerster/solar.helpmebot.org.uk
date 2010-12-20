@@ -43,7 +43,7 @@
         </div>
       </div>
       <div id="column2">
-		{$content}
+		{include file=$content}
       </div>
     </div>
     <div id="footer">

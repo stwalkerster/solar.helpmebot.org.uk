@@ -1,10 +1,8 @@
 <?php
 require_once("config.php");
 
-$smarty = new Smarty();
-$smarty->template_dir = $s_templateDir;
-$smarty->compile_dir = $s_compileDir;
-$smarty->config_dir = $s_configDir;
-$smarty->cache_dir = $s_cacheDir;
+// create the page
+$page = PageBase::create();
 
-$smarty->display('main.tpl');
+// execute the page
+$page->execute();
