@@ -108,7 +108,7 @@ abstract class PageBase
 		return $pa[0];
 	}
 
-	function createGraph($queries)
+	public static function createGraph($queries)
 	{
 		$qb = new QueryBrowser();
 		
