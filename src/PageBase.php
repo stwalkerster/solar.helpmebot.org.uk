@@ -96,12 +96,12 @@ abstract class PageBase
 	static function getPageName()
 	{
 		if(!isset($_SERVER['PATH_INFO']))
-			return 'Main';
+		return 'Main';
 			
 		$pathInfo = $_SERVER['PATH_INFO'];
 		$page = trim($pathInfo ,'/');
 		if($page == "")
-			return "Main";
+		return "Main";
 			
 		$pa = explode('/', $page);
 			
@@ -111,29 +111,55 @@ abstract class PageBase
 	public static function createGraph($queries)
 	{
 		$qb = new QueryBrowser();
-		
-		$imagehashes = array();		
-		
+
+		$imagehashes = array();
+
 		foreach ($queries as $q) {
 			$DataSet = new pData();
 			$qResult = $qb->executeQueryToArray($q['query']);
-			
+				
 			if(sizeof($qResult) > 0)
 			{
-			
+					
 				foreach($qResult as $row)
 				{
 					$DataSet->AddPoint($row['y'], $q['series'], $row['x']);
 				}
-	
-				
-				
+
+				$DataSet->AddPoint(
+				array(
+				"00:00", "", "", "", "", "",
+				"01:00", "", "", "", "", "",
+				"02:00", "", "", "", "", "",
+				"03:00", "", "", "", "", "",
+				"04:00", "", "", "", "", "",
+				"05:00", "", "", "", "", "",
+				"06:00", "", "", "", "", "",
+				"07:00", "", "", "", "", "",
+				"08:00", "", "", "", "", "",
+				"09:00", "", "", "", "", "",
+				"10:00", "", "", "", "", "",
+				"11:00", "", "", "", "", "",
+				"12:00", "", "", "", "", "",
+				"13:00", "", "", "", "", "",
+				"14:00", "", "", "", "", "",
+				"15:00", "", "", "", "", "",
+				"16:00", "", "", "", "", "",
+				"17:00", "", "", "", "", "",
+				"18:00", "", "", "", "", "",
+				"19:00", "", "", "", "", "",
+				"20:00", "", "", "", "", "",
+				"21:00", "", "", "", "", "",
+				"22:00", "", "", "", "", "",
+				"23:00", "", "", "", "", "",
+				),"Name");
+
 				$DataSet->AddAllSeries();
 				$DataSet->SetAbsciseLabelSerie();
-				
+
 				$chartname = md5(serialize($DataSet));
 				$imagehashes[] = array($chartname, $q['series']);
-				
+
 				if(!file_exists($chartname))
 				{
 					$Test = new pChart(500,280);
@@ -144,23 +170,23 @@ abstract class PageBase
 					$Test->drawGraphArea(255,255,255,TRUE);
 					$Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,45,2);
 					$Test->drawGrid(4,TRUE,230,230,230,50);
-					
+						
 					// Draw the 0 line
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",6);
 					$Test->drawTreshold(0,143,55,72,TRUE,TRUE);
-					
+						
 					// Draw the cubic curve graph
 					$Test->drawFilledCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),.1,50);
-					
+						
 					// Finish the graph
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",10);
 					$Test->drawTitle(50,22, $q['series'],50,50,50,585);
 					$Test->Render("render/" . $chartname);
-				}   
+				}
 			}
-		}		
-		
+		}
+
 		return $imagehashes;
-		
+
 	}
 }
