@@ -170,6 +170,7 @@ abstract class PageBase
 					$Test->drawGraphArea(255,255,255,TRUE);
 					$Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,45,2);
 					$Test->drawGrid(4,TRUE,230,230,230,50);
+					$Test->setFixedScale(0,2);
 						
 					// Draw the 0 line
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",6);
