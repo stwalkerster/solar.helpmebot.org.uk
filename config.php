@@ -1,4 +1,10 @@
 <?php
+
+$dbusername = "solar";
+$dbpassword = "";
+$dbhost = "dbmaster";
+$dbschema = "solar";
+
 require_once("config.inc.php");
 
 // the web-accessible folder where index.php is stored
@@ -18,4 +24,7 @@ $s_configDir = $baseScriptPath . '/smartyconfig/';
 
 require_once($baseIncludePath . 'PageBase.php');
 require_once($baseIncludePath . 'PageMain.php');
+require_once($baseIncludePath . 'QueryBrowser.php');
 require_once($baseScriptPath . 'smarty/Smarty.class.php');
+require_once("graph/pChart/pData.class");   
+require_once("graph/pChart/pChart.class");

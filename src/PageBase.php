@@ -11,10 +11,7 @@ abstract class PageBase
 	var $title = "Solar Power Generation Statistics";
 
 	var $menu = array(
-		'menuHome' => array(
-			'link' => '/',
-			'text' => 'Home',
-		),
+		'Home' =>  '/',
 	);
 
 	var $smarty;
@@ -111,5 +108,59 @@ abstract class PageBase
 		return $pa[0];
 	}
 
-
+	function createClosuresGraph($queries)
+	{
+		$qb = new QueryBrowser();
+		
+		$imagehashes = array();		
+		
+		foreach ($queries as $q) {
+			$DataSet = new pData();
+			$qResult = $qb->executeQueryToArray($q['query']);
+			
+			if(sizeof($qResult) > 0)
+			{
+			
+				foreach($qResult as $row)
+				{
+					$DataSet->AddPoint($row['y'], $q['series'], $row['x']);
+				}
+	
+				
+				
+				$DataSet->AddAllSeries();
+				$DataSet->SetAbsciseLabelSerie();
+				
+				$chartname = md5(serialize($DataSet));
+				$imagehashes[] = array($chartname, $q['series']);
+				
+				if(!file_exists($chartname))
+				{
+					$Test = new pChart(700,280);
+					$Test->setFontProperties("graph/Fonts/tahoma.ttf",8);
+					$Test->setGraphArea(50,30,680,200);
+					$Test->drawFilledRoundedRectangle(7,7,693,273,5,240,240,240);
+					$Test->drawRoundedRectangle(5,5,695,275,5,230,230,230);
+					$Test->drawGraphArea(255,255,255,TRUE);
+					$Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,45,2);
+					$Test->drawGrid(4,TRUE,230,230,230,50);
+					
+					// Draw the 0 line
+					$Test->setFontProperties("graph/Fonts/tahoma.ttf",6);
+					$Test->drawTreshold(0,143,55,72,TRUE,TRUE);
+					
+					// Draw the cubic curve graph
+					$Test->drawFilledCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),.1,50);
+					
+					// Finish the graph
+					$Test->setFontProperties("graph/Fonts/tahoma.ttf",10);
+					$Test->drawTitle(50,22, $q['series'],50,50,50,585);
+					$Test->Render("render/" . $chartname);
+				}   
+			}
+		}		
+		
+		return $imagehashes;
+		
+	}
 }
