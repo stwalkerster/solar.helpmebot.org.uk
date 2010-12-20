@@ -25,6 +25,18 @@ class PageMain extends PageBase
 	
 	function runPage()
 	{
+		$queries = array();
+		for ($i = -1; $i > -8; $i--) {
+			
+			$yesterday =date("yyyy-MM-dd", mktime(0,0,0,date("M"),date("d")+ $i,date("yyyy")));
+			$query = 'SELECT * FROM `solar`.`hourlydata` WHERE timestamp LIKE "'.$yesterday.'%"';
+			
+			$queries[] = array("query"=>$query,"series"=>$yesterday);
+		}
+		
+		$graphs = createGraphs($queries);
+		
+		$this->smarty->assign('graphlist', $graphs);
 		$this->smarty->assign('content', 'MainPage.tpl');
 	}
 }
