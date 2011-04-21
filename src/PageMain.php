@@ -35,10 +35,17 @@ class PageMain extends PageBase
 		}
 		
 		$graphs = PageBase::createGraph($queries);
+		
+		$qb = new QueryBrowser();
+		
+		$generationlist=array();
+		foreach($qb->executeQueryToArray("SELECT * FROM dailydata ORDER BY date desc LIMIT 28;") as $row )
+		{
+			$generationlist[$row['date']] = $row['totalgenerated'];
+		}
+		
 		$this->smarty->assign('graphlist', $graphs);
-		
-		
-		
+		$this->smarty->assign('generation', $generationlist);
 		$this->smarty->assign('content', 'MainPage.tpl');
 	}
 }
