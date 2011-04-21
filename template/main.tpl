@@ -31,7 +31,7 @@
       <div id="column1">
         <div class="sidebaritem">
           <div class="sbihead">
-            <h1>latest generation:</h1>
+            <h1>generation log:</h1>
           </div>
           <div class="sbicontent">
             {foreach $generation as $genitem}
