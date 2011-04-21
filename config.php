@@ -11,9 +11,9 @@ require_once("config.inc.php");
 $baseFilePath = "/";
 
 // the real file path where index.php is stored
-$baseScriptPath = "/var/www/solar/";
+$baseScriptPath = "/var/www/solar.helpmebot.org.uk/";
 
-$baseIncludePath = "/var/www/solar/src/";
+$baseIncludePath = "/var/www/solar.helpmebot.org.uk/src/";
 
 
 $s_cacheDir = $baseScriptPath . '/smartycache/';
