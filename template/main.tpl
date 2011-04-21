@@ -17,7 +17,7 @@
   <div id="main">
     <div id="links">
       <!-- **** INSERT LINKS HERE **** -->
-      <a href="#">another link</a> | <a href="#">another link</a> | <a href="#">another link</a> | <a href="#">another link</a>
+      <a href="https://github.com/stwalkerster/solar.helpmebot.org.uk">sourcecode&nbsp;on&nbsp;github</a>&nbsp;|&nbsp;<a href="http://blog.helpmebot.org.uk/">blog</a>&nbsp;|&nbsp;<a href="http://helpmebot.org.uk/">helpmebot.org.uk</a>
     </div>
     <div id="logo"><h1>{$pagetitle}</h1></div>
     <div id="content">
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div id="footer">
-      copyright &copy; 2010 Simon Walker | <a href="mailto:stwalkerster@helpmebot.org.uk">stwalkerster@helpmebot.org.uk</a> | <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.dcarter.co.uk">design by dcarter</a>
+      source: copyright &copy; 2010 Simon Walker. | design: <a href="http://www.dcarter.co.uk">copyright &copy; 2011 dcarter design</a>
     </div>
   </div>
 </body>

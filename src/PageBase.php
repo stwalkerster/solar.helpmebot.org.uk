@@ -160,7 +160,7 @@ abstract class PageBase
 				$chartname = md5(serialize($DataSet));
 				$imagehashes[] = array($chartname, $q['series']);
 
-				if(!file_exists($chartname))
+				if(!file_exists($chartname . ".png"))
 				{
 					$Test = new pChart(500,280);
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",8);
@@ -182,7 +182,7 @@ abstract class PageBase
 					// Finish the graph
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",10);
 					$Test->drawTitle(50,22, $q['series'],50,50,50,585);
-					$Test->Render("render/" . $chartname);
+					$Test->Render("render/" . $chartname . ".png");
 				}
 			}
 		}

@@ -5,8 +5,6 @@ $dbpassword = "";
 $dbhost = "dbmaster";
 $dbschema = "solar";
 
-require_once("config.inc.php");
-
 // the web-accessible folder where index.php is stored
 $baseFilePath = "/";
 
@@ -15,6 +13,7 @@ $baseScriptPath = "/var/www/solar.helpmebot.org.uk/";
 
 $baseIncludePath = "/var/www/solar.helpmebot.org.uk/src/";
 
+require_once("config.inc.php");
 
 $s_cacheDir = $baseScriptPath . '/smartycache/';
 $s_compileDir = $baseScriptPath . '/smartycompile/';

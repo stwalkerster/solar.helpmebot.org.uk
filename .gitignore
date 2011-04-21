@@ -1,0 +1,5 @@
+render/*
+smartycompile/*
+!.gitignore
+config.inc.php
+web.config

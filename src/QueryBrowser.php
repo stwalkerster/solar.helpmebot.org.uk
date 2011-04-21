@@ -24,6 +24,8 @@ class QueryBrowser
 	{
 		global $dbusername, $dbhost, $dbpassword, $dbschema;
 		$link = mysql_connect($dbhost,$dbusername,  $dbpassword);
+		if(!$link)
+			die(mysql_error());
 		mysql_select_db($dbschema,$link);
 	
 		$results = mysql_query($query,$link);

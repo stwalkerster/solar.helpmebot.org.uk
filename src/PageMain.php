@@ -36,6 +36,9 @@ class PageMain extends PageBase
 		
 		$graphs = PageBase::createGraph($queries);
 		$this->smarty->assign('graphlist', $graphs);
+		
+		
+		
 		$this->smarty->assign('content', 'MainPage.tpl');
 	}
 }
