@@ -154,7 +154,7 @@ abstract class PageBase
 				"23:00", "", "", "", "", "",
 				),"XLabel");
 
-				$DataSet->AddAllSeries();
+				$DataSet->AddSerie($q['series']);
 				$DataSet->SetAbsciseLabelSerie("XLabel");
 
 				$chartname = md5(serialize($DataSet));
