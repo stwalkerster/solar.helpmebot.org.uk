@@ -26,7 +26,7 @@ class PageMain extends PageBase
 	function runPage()
 	{
 		$queries = array();
-		for ($i = -1; $i > -8; $i--) {
+		for ($i = -1; $i > -29; $i--) {
 			
 			$yesterday =date("Y-m-d", mktime(0,0,0,date("m"),date("d")+ $i,date("Y")));
 			$query = 'SELECT TIME(timestamp) AS x, generation as y FROM `solar`.`hourlydata` WHERE timestamp LIKE "'.$yesterday.'%";';
