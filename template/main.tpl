@@ -17,7 +17,7 @@
   <div id="main">
     <div id="links">
       <!-- **** INSERT LINKS HERE **** -->
-      <a href="https://github.com/stwalkerster/solar.helpmebot.org.uk">sourcecode&nbsp;on&nbsp;github</a>&nbsp;|&nbsp;<a href="http://blog.helpmebot.org.uk/">blog</a>&nbsp;|&nbsp;<a href="http://helpmebot.org.uk/">helpmebot.org.uk</a>
+      <a href="https://github.com/stwalkerster/solar.helpmebot.org.uk">sourcecode&nbsp;on&nbsp;github</a>&nbsp;|&nbsp;<a href="http://blog.stwalkerster.co.uk/">blog</a>&nbsp;|&nbsp;<a href="http://helpmebot.org.uk/">helpmebot.org.uk</a>
     </div>
     <div id="logo"><h1>{$pagetitle}</h1></div>
     <div id="content">
