@@ -32,7 +32,7 @@ abstract class PageBase
 			),
 		"PageDaily" => array(
 			"title" => "Daily",
-			"link" => "/",
+			"link" => "/Daily",
 			),
 		);
 		
