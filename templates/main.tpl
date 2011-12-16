@@ -9,17 +9,17 @@
           <div class="span6">
             <h2>Latest daily data</h2>
             <p>See graphs of the generation over the period of the last 7 days</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
+            <p><a class="btn" href="{$cWebPath}/index.php/Daily">View details &raquo;</a></p>
           </div>
           <div class="span5">
-            <h2>Daily data - historic</h2>
+            <h2>Daily data - historic<span class="label notice">Coming soon!</span></h2>
              <p>View the graphs of the daily data going back across all time</p>
-            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
+            <p><a class="btn disabled" >View details &raquo;</a></p>
          </div>
           <div class="span5">
-            <h2>Daily statistics</h2>
+            <h2>Daily statistics<span class="label notice">Coming soon!</span></h2>
             <p>See statistics about the daily data, best time of the day, best day, worst day, etc</p>
-            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
+            <p><a class="btn disabled">View details &raquo;</a></p>
           </div>
         </div>
 
@@ -27,18 +27,18 @@
 
          <div class="row">
           <div class="span6">
-            <h2>Latest monthly data</h2>
+            <h2>Latest monthly data<span class="label notice">Coming soon!</span></h2>
             <p>See graphs of the generation over the period of the last 3 months</p>
-            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
+            <p><a class="btn disabled">View details &raquo;</a></p>
           </div>
           <div class="span5">
-            <h2>Monthly data - historic</h2>
+            <h2>Monthly data - historic<span class="label notice">Coming soon!</span></h2>
              <p>View the graphs of the monthly data going back across all time</p>
-            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
+            <p><a class="btn disabled">View details &raquo;</a></p>
          </div>
           <div class="span5">
-            <h2>Monthly statistics</h2>
+            <h2>Monthly statistics<span class="label notice">Coming soon!</span></h2>
             <p>See statistics about the monthly data, best month, worst month, etc</p>
-            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
+            <p><a class="btn disabled">View details &raquo;</a></p>
           </div>
         </div>
