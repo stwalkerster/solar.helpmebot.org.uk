@@ -219,7 +219,7 @@ abstract class PageBase
 			$data = $alreadyExistsQuery->fetchColumn();
 			if($data !== false)
 			{
-				$imagehashes[] = $data;
+				$imagehashes[] = array($data, $p);
 				continue;
 			}
 			
