@@ -85,6 +85,8 @@ abstract class PageBase
 			$generationlist[$row['date']] = $row['totalgenerated'];
 		}
 		$this->mSmarty->assign('generation', $generationlist);
+		
+		$this->mSmarty->assign('release', shell_exec("git describe --tags"));
 	}
 	
 	/**
