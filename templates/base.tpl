@@ -48,7 +48,7 @@
     <div class="container-fluid">
       <div class="sidebar">
         <div class="well">
-          <h4>Sidebar</h4>
+          <h4>Recent daily totals</h4>
 		    {foreach $generation as $genitem}
 	            <h5>{$genitem@key}</h5>
 	            <p>{$genitem}</p>
@@ -56,12 +56,9 @@
         </div>
       </div>
       <div class="content">
-        <div class="row">
-          <div class="span16">
-			{include file=$content}
-          </div>
-        </div>
-
+	  
+		{include file=$content}
+		
         <footer>
           <p>Designed and built by <a href="http://stwalkerster.co.uk">Simon Walker</a>.</p>
 		  <p>Bootstrap library by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a> is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a></p>

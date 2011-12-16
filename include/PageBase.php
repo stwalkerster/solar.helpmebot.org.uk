@@ -30,6 +30,10 @@ abstract class PageBase
 			"title" => "Home",
 			"link" => "/",
 			),
+		"PageDaily" => array(
+			"title" => "Daily",
+			"link" => "/",
+			),
 		);
 		
 	// array of HTTP headers to add to the request.
@@ -66,6 +70,17 @@ abstract class PageBase
 		global $cWebPath, $cScriptPath;
 		$this->mSmarty->assign("cWebPath", $cWebPath);
 		$this->mSmarty->assign("cScriptPath", $cScriptPath);
+		
+		// sidebar
+		global $gDatabase;
+		$generationlist=array();
+		$pdostmt = $gDatabase->prepare("SELECT * FROM dailydata ORDER BY date desc LIMIT 28;");
+		$pdostmt->execute();
+		foreach($pdostmt->fetchAll() as $row )
+		{
+			$generationlist[$row['date']] = $row['totalgenerated'];
+		}
+		$this->mSmarty->assign('generation', $generationlist);
 	}
 	
 	/**
