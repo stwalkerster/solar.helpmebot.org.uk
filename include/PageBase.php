@@ -203,7 +203,7 @@ abstract class PageBase
 			throw new Exception();
 	}
 	
-	public static function createGraph($query, $parameters, $type)
+	public static function createGraph($query, $parameters, $type,$w = 500,$h=280)
 	{
 		global $gDatabase;
 		
@@ -220,7 +220,7 @@ abstract class PageBase
 
 		foreach ($parameters as $p) {
 		
-			$alreadyExistsQuery->bindParam(":data", $p);
+			$alreadyExistsQuery->bindParam(":data", $p . "-$w"."x$h");
 			$alreadyExistsQuery->execute();
 			$data = $alreadyExistsQuery->fetchColumn();
 			if($data !== false)
@@ -276,14 +276,14 @@ abstract class PageBase
 				$DataSet->AddSerie($p);
 				$DataSet->SetAbsciseLabelSerie("XLabel");
 
-				$chartname = md5(serialize($DataSet));
+				$chartname = md5(serialize($DataSet)."-$w"."x$h");
 				$imagehashes[] = array($chartname, $p);
 
 				if(!file_exists($chartname . ".png"))
 				{
-					$Test = new pChart(500,280);
+					$Test = new pChart($w,$h);
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",8);
-					$Test->setGraphArea(50,30,480,200);
+					$Test->setGraphArea(50,30,$w-20,$h-80);
 					$Test->setFixedScale(0,3, 12);
 					$Test->drawFilledRoundedRectangle(7,7,493,273,5,240,240,240);
 					$Test->drawRoundedRectangle(5,5,495,275,5,230,230,230);
@@ -305,7 +305,7 @@ abstract class PageBase
 					$Test->Render("render/" . $chartname . ".png");
 				}
 				
-				$insertCacheQuery->bindParam(":data", $p);
+				$insertCacheQuery->bindParam(":data", $p . "-$w"."x$h");
 				$insertCacheQuery->bindParam(":hash", $chartname);
 				$insertCacheQuery->execute();
 			}
