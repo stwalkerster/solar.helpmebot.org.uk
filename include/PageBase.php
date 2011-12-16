@@ -35,7 +35,7 @@ abstract class PageBase
 		//	"link" => "/Daily",
 		//	),
 		"PageDailyHistorical" => array(
-			"title" => "Historical)",
+			"title" => "Historical",
 			"link" => "/DailyHistorical",
 			),
 		);

@@ -15,7 +15,7 @@
           <div class="span5">
             <h2>Historic daily data</h2>
              <p>View the graphs of the daily data going back across all time</p>
-            <p><a class="btn" href="{$cWebPath}/index.php/Historical">View details &raquo;</a></p>
+            <p><a class="btn" href="{$cWebPath}/index.php/DailyHistorical">View details &raquo;</a></p>
          </div>
           <div class="span5">
             <h2>Daily statistics</h2>
