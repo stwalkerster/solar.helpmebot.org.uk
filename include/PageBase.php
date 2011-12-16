@@ -176,6 +176,8 @@ abstract class PageBase
 	
 	public static function createGraph($query, $parameters)
 	{
+		global $gDatabase;
+		
 		$q = $gDatabase->prepare($query);
 
 		$imagehashes = array();
