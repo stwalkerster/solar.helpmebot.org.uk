@@ -206,7 +206,7 @@ abstract class PageBase
 		$alreadyExistsQuery = $gDatabase->prepare("SELECT `hash` FROM graphcache WHERE `type` = :type AND `data` = :data;");
 		$alreadyExistsQuery->bindParam(":type", $type);
 		
-		$insertCacheQuery = $gDatabase->prepare("INSERT INTO graphcahce VALUES (null, :type, :data, :hash);");
+		$insertCacheQuery = $gDatabase->prepare("INSERT INTO graphcache VALUES (null, :type, :data, :hash);");
 		$insertCacheQuery->bindParam(":type", $type);
 
 		
