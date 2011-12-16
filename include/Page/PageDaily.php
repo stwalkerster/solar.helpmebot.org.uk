@@ -5,6 +5,12 @@ class PageDaily extends PageBase
 	
 	protected function runPage()
 	{
+		$offset = WebRequest::get("offset");
+		if($offset === false)
+		{
+			$offset = 0;
+		}
+	
 	
 		$params = array();
 		$query = 'SELECT TIME(timestamp) AS x, generation as y FROM `solar`.`hourlydata` WHERE timestamp LIKE :yesterday;';
@@ -18,6 +24,7 @@ class PageDaily extends PageBase
 	
 		$this->mSmarty->assign('graphlisttitle', "Last 7 days power generation");
 		$this->mSmarty->assign('graphlist', $graphs);
+		$this->mSmarty->assign('offset', $offset);
 		$this->mSmarty->assign('content', 'MainPage.tpl');
 	}
 }
