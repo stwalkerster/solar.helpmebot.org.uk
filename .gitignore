@@ -1,5 +1,10 @@
 render/*
-smartycompile/*
-!.gitignore
-config.inc.php
+templates_c/*
+
+*.ipr
+*.iws
+.my.cnf
 web.config
+
+# local config file
+config.inc.php

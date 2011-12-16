@@ -1,29 +1,76 @@
 <?php
+// check for invalid entry point
+if(!defined("HMS")) die("Invalid entry point");
 
-$dbusername = "solar";
-$dbpassword = "";
-$dbhost = "dbmaster";
-$dbschema = "solar";
+// main configuration file
 
-// the web-accessible folder where index.php is stored
-$baseFilePath = "/";
+ini_set('display_errors',1);
 
-// the real file path where index.php is stored
-$baseScriptPath = "/var/www/solar.helpmebot.org.uk/";
+$cIncludePath = "include";
+$cFilePath = __DIR__;
+$cScriptPath = $_SERVER['SCRIPT_NAME'];
 
-$baseIncludePath = "/var/www/solar.helpmebot.org.uk/src/";
+$pparts = pathinfo($_SERVER["SCRIPT_NAME"]);
+$cWebPath = $pparts["dirname"] == "/" ? "" : $pparts["dirname"];
 
-require_once("config.inc.php");
+// database details
+$cDatabaseConnectionString = 'mysql:host=dbmaster.helpmebot.org.uk;dbname=dvs_hotel';
+$cDatabaseModule = "pdo_mysql";
+$cMyDotCnfFile = ".my.cnf";
 
-$s_cacheDir = $baseScriptPath . '/smartycache/';
-$s_compileDir = $baseScriptPath . '/smartycompile/';
-$s_templateDir = $baseScriptPath . '/template/';
-$s_configDir = $baseScriptPath . '/smartyconfig/';
+// array of global scripts to be included
+// Global scripts are included first, then local scripts second
+$cGlobalScripts = array(
+	'http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', 
+	);
 
+$cGlobalStyles = array(
+	);
+	
+$cAvailableLanguages = array(
+	'zxx' => "(Language Tag Codes)",
+	'en-GB' => "English (British)",
+	'fi' => "Suomi",
+	);
+	
+// change this before using it on a live system! this is for test purposes only.
+$cCardEncryptionKey = base64_decode(
+	"XDI3MVwzMzJTeFwyNzQ7XDMyXDM0MCdcMjIxIVwzNTVcMzY2XlwyMjFcMzQyZVwz".
+	"NzBcMzM1XDMzNzV3XDM1MVp0JGNdcFwyNzVcMzU3XDM1M1wyMDJcMjIyLlwyNTdc".
+	"MjAxXDM1N1wzNjZcMzYyXDMzNVwzMTUwJSZfa1wzNTRcMjMzXDMwNFwzNTdcMjQz".
+	"XDIxN1wzMDN3XCJcMjI2XDMwNFwzNDJcMjcxXDM1N1wyOlVJXDIzNVwzNjZcMzMy".
+	"flowIyR2XDMzM1wyMzR6XDM3NVwiNFwzMTZcMzQ3cVwyNTMsSVwzMTFcMjQ3XDI0".
+	"NFwzMTBcMzBcMjQyXDMxNFwyMDRcMjI1XDM3KlwzMTFcNFwyNzJcMitcMzQ3XDMz".
+	"MVwyNjNcMzQ1XDI1N1wyMDRcMjUxXDIwNFwzMTUzXDM2MlwyNjNcMjczXDIxM1wy".
+	"MzFQXDIwMUFgXDM0NGxcMjVcMzUzXDIyMVwzN1w2LVwyMTRcMzI3b1wzNzN2XDMz"
+	);
 
-require_once($baseIncludePath . 'PageBase.php');
-require_once($baseIncludePath . 'PageMain.php');
-require_once($baseIncludePath . 'QueryBrowser.php');
-require_once($baseScriptPath . 'smarty/Smarty.class.php');
-require_once("graph/pChart/pData.class");   
-require_once("graph/pChart/pChart.class");
+// list of required php extensions.
+// The PDO module required is set above, and need not be listed here also.
+// Optional ones such as Tidy should not be listed here - the site will run 
+// without them. 
+$cRequiredExtensions = array(
+	"PDO",
+	"SPL",
+	);
+	
+// use Tidy to make pretty HTML.
+$cUseTidy = false;
+	
+$cTidyOptions = array(
+	//"hide-comments" => 1, // discards html comments
+	"logical-emphasis" => 1, // swaps <b> for <strong> and <i> for <em>
+	"output-xhtml" => 1,
+	"indent" => "auto",
+	"wrap" => 0, // disables wrapping
+	"vertical-space" => 1, // adds vertical spacing for readability
+	);
+///////////////// don't put new config options below this line
+
+if(file_exists("config.local.php"))
+{
+	require_once("config.local.php");
+}
+
+// Load the main hotel file
+require_once($cIncludePath . "/Hotel.php");
