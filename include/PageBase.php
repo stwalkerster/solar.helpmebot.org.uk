@@ -199,7 +199,10 @@ abstract class PageBase
 
 		foreach ($parameters as $p) {
 			$DataSet = new pData();
-			$q->bindParam(":yesterday", $p);
+			
+			$modP = $p . "%";
+			
+			$q->bindParam(":yesterday", $modP);
 			$q->execute();
 			$qResult = $q->fetchAll();
 			
