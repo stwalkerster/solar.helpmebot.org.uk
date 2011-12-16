@@ -41,6 +41,7 @@
 				<li {if isset($menuitem.current)}class="active"{/if}><a href="{$cScriptPath}{$menuitem.link}" >{$menuitem.title}</a></li>
 			{/foreach}
           </ul>
+		  <p class="pull-right">View source on <a href="http://github.com/stwalkerster/solar.helpmebot.org.uk">GitHub</a></p>
         </div>
       </div>
     </div>
