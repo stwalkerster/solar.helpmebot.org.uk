@@ -30,9 +30,13 @@ abstract class PageBase
 			"title" => "Home",
 			"link" => "/",
 			),
-		"PageDaily" => array(
-			"title" => "Daily",
-			"link" => "/Daily",
+		//"PageDaily" => array(
+		//	"title" => "Daily",
+		//	"link" => "/Daily",
+		//	),
+		"PageDailyHistorical" => array(
+			"title" => "Historical)",
+			"link" => "/DailyHistorical",
 			),
 		);
 		

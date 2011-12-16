@@ -9,13 +9,13 @@
         <div class="row">
           <div class="span6">
             <h2>Latest daily data</h2>
-            <p>See graphs of the generation over the period of the last 7 days</p>
-            <p><a class="btn" href="{$cWebPath}/index.php/Daily">View details &raquo;</a></p>
+            <p>See detailed graphs and stats of the generation over the period of the last 7 days<span class="label notice">Coming soon!</span></p>
+            <p><a class="btn disabled" <!--href="{$cWebPath}/index.php/Daily"-->>View details &raquo;</a></p>
           </div>
           <div class="span5">
             <h2>Historic daily data</h2>
-             <p>View the graphs of the daily data going back across all time<span class="label notice">Coming soon!</span></p>
-            <p><a class="btn disabled" >View details &raquo;</a></p>
+             <p>View the graphs of the daily data going back across all time</p>
+            <p><a class="btn" href="{$cWebPath}/index.php/Historical">View details &raquo;</a></p>
          </div>
           <div class="span5">
             <h2>Daily statistics</h2>
