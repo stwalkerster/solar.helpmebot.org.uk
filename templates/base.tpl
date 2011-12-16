@@ -63,7 +63,8 @@
         </div>
 
         <footer>
-          <p>&copy; Company 2011</p>
+          <p>Designed and built by <a href="http://stwalkerster.co.uk">Simon Walker</a>.</p>
+		  <p>Bootstrap library by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a> is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a></p>
         </footer>
       </div>
     </div>
