@@ -174,22 +174,24 @@ abstract class PageBase
 			throw new Exception();
 	}
 	
-	public static function createGraph($queries)
+	public static function createGraph($query, $parameters)
 	{
-		$qb = new QueryBrowser();
+		$q = $gDatabase->prepare($query);
 
 		$imagehashes = array();
 
-		foreach ($queries as $q) {
+		foreach ($parameters as $p) {
 			$DataSet = new pData();
-			$qResult = $qb->executeQueryToArray($q['query']);
-
+			$q->bindParam(":yesterday", $p);
+			$q->execute();
+			$qResult = $q->fetchAll();
+			
 			if(sizeof($qResult) > 0)
 			{
 
 				foreach($qResult as $row)
 				{
-					$DataSet->AddPoint($row['y'], $q['series'], $row['x']);
+					$DataSet->AddPoint($row['y'], $p, $row['x']);
 				}
 
 				$DataSet->AddPoint(
@@ -220,11 +222,11 @@ abstract class PageBase
 				"23:00", "", "", "", "", "",
 				),"XLabel");
 
-				$DataSet->AddSerie($q['series']);
+				$DataSet->AddSerie($p);
 				$DataSet->SetAbsciseLabelSerie("XLabel");
 
 				$chartname = md5(serialize($DataSet));
-				$imagehashes[] = array($chartname, $q['series']);
+				$imagehashes[] = array($chartname, $p);
 
 				if(!file_exists($chartname . ".png"))
 				{
@@ -248,7 +250,7 @@ abstract class PageBase
 
 					// Finish the graph
 					$Test->setFontProperties("graph/Fonts/tahoma.ttf",10);
-					$Test->drawTitle(50,22, $q['series'],50,50,50,585);
+					$Test->drawTitle(50,22, $p,50,50,50,585);
 					$Test->Render("render/" . $chartname . ".png");
 				}
 			}

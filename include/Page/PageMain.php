@@ -25,27 +25,28 @@ class PageMain extends PageBase
 	
 	function runPage()
 	{
-		$queries = array();
-		for ($i = -1; $i > -29; $i--) {
-			
-			$yesterday =date("Y-m-d", mktime(0,0,0,date("m"),date("d")+ $i,date("Y")));
-			$query = 'SELECT TIME(timestamp) AS x, generation as y FROM `solar`.`hourlydata` WHERE timestamp LIKE "'.$yesterday.'%";';
-			
-			$queries[] = array("query"=>$query,"series"=>$yesterday);
+		global $gDatabase;
+	
+		$params = array();
+		$query = 'SELECT TIME(timestamp) AS x, generation as y FROM `solar`.`hourlydata` WHERE timestamp LIKE :yesterday;';
+
+		for ($i = -1; $i > -29; $i--) {		
+			$yesterday = date("Y-m-d", mktime(0,0,0,date("m"),date("d")+ $i,date("Y"))) ;
+			$params[] = $yesterday;
 		}
 		
-		$graphs = PageBase::createGraph($queries);
+		$graphs = PageBase::createGraph($query, $params);
 		
-		$qb = new QueryBrowser();
-		
+			
 		$generationlist=array();
-		foreach($qb->executeQueryToArray("SELECT * FROM dailydata ORDER BY date desc LIMIT 28;") as $row )
+		$pdostmt = $gDatabase->prepare("SELECT * FROM dailydata ORDER BY date desc LIMIT 28;");
+		$pdostmt->execute();
+		foreach($pdostmt->fetchAll() as $row )
 		{
 			$generationlist[$row['date']] = $row['totalgenerated'];
 		}
 		
-		$this->smarty->assign('graphlist', $graphs);
-		$this->smarty->assign('generation', $generationlist);
-		$this->smarty->assign('content', 'MainPage.tpl');
+		$this->mSmarty->assign('graphlist', $graphs);
+		$this->mSmarty->assign('generation', $generationlist);
 	}
 }
