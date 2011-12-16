@@ -74,7 +74,8 @@ HTML;
 	
 	private function setupEnvironment()
 	{
-		global $cIncludePath;
+		global $gDatabase, $cDatabaseConnectionString, $cMyDotCnfFile, 
+			$cDatabaseModule, $cIncludePath;
 
 		set_exception_handler(array("Hotel","exceptionHandler"));
 			
@@ -96,6 +97,18 @@ HTML;
 		
 		spl_autoload_register("Hotel::autoLoader");
 			
+		if(!extension_loaded($cDatabaseModule))
+		{
+			throw new ExtensionUnavailableException($cDatabaseModule);
+		}
+		
+		$mycnf = parse_ini_file($cMyDotCnfFile);
+		
+		$gDatabase = new Database($cDatabaseConnectionString,$mycnf["user"], $mycnf["password"]);
+		
+		// tidy up sensitive data we don't want lying around.
+		unset($mycnf);
+		
 		// can we tidy up the output with tidy before we send it?
 		if(extension_loaded("tidy"))
 		{ // Yes!

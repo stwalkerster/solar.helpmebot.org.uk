@@ -13,6 +13,11 @@ $cScriptPath = $_SERVER['SCRIPT_NAME'];
 $pparts = pathinfo($_SERVER["SCRIPT_NAME"]);
 $cWebPath = $pparts["dirname"] == "/" ? "" : $pparts["dirname"];
 
+// database details
+$cDatabaseConnectionString = 'mysql:host=dbmaster.helpmebot.org.uk;dbname=dvs_hotel';
+$cDatabaseModule = "pdo_mysql";
+$cMyDotCnfFile = ".my.cnf";
+
 // array of global scripts to be included
 // Global scripts are included first, then local scripts second
 $cGlobalScripts = array(
