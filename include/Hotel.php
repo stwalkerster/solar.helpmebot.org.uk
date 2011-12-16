@@ -13,18 +13,7 @@ class Hotel
 		$this->cleanupEnvironment();
 	}
 	
-	public function setManagementMode($value)
-	{
-		if($value == "1" || $value == "2")
-		{
-			$this->managementMode = $value;
-		}
-		else
-		{
-			$this->managementMode = true;
-		}
-	}
-	
+
 	public static function exceptionHandler($exception)
 	{
 		$errorDocument = <<<HTML
@@ -85,8 +74,7 @@ HTML;
 	
 	private function setupEnvironment()
 	{
-		global $gDatabase, $cDatabaseConnectionString, $cMyDotCnfFile, 
-			$cDatabaseModule, $cIncludePath;
+		global $cIncludePath;
 
 		set_exception_handler(array("Hotel","exceptionHandler"));
 			
@@ -108,18 +96,6 @@ HTML;
 		
 		spl_autoload_register("Hotel::autoLoader");
 			
-		if(!extension_loaded($cDatabaseModule))
-		{
-			throw new ExtensionUnavailableException($cDatabaseModule);
-		}
-		
-		$mycnf = parse_ini_file($cMyDotCnfFile);
-		
-		$gDatabase = new Database($cDatabaseConnectionString,$mycnf["user"], $mycnf["password"]);
-		
-		// tidy up sensitive data we don't want lying around.
-		unset($mycnf);
-		
 		// can we tidy up the output with tidy before we send it?
 		if(extension_loaded("tidy"))
 		{ // Yes!
@@ -135,9 +111,7 @@ HTML;
 					});
 			}
 		}
-		
-		
-		
+				
 		global $gCookieJar;
 		$gCookieJar = array();
 	}
@@ -150,7 +124,7 @@ HTML;
 	
 	protected function main()
 	{
-		$basePage = $this->managementMode ? "ManagementPageBase" : "PageBase";
+		$basePage = "PageBase";
 	
 		// create a page...
 		$page = $basePage::create();

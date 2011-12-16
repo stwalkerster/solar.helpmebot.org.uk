@@ -27,9 +27,8 @@
         <div class="container-fluid">
           <a class="brand" href="#">{$pagetitle}</a>
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-			{foreach $menu as $menuitem}
-				<li><a href="{$menuitem}">{$menuitem@key}</a></li>
+			{foreach from="$mainmenu" item="menuitem" }
+				<li {if isset($menuitem.current)}class="active"{/if}><a href="{$cScriptPath}{$menuitem.link}" >{$menuitem.title}</a></li>
 			{/foreach}
           </ul>
         </div>

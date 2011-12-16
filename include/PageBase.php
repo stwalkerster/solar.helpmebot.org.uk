@@ -27,28 +27,8 @@ abstract class PageBase
 				),
 			*/		
 		"PageMain" => array(
-			"title" => "page-home",
+			"title" => "Home",
 			"link" => "/",
-			),
-		"PageAbout" => array(
-			"title" => "page-about",
-			"link" => "/About",
-			),
-		"PageBook" => array(
-			"title" => "page-book",
-			"link" => "/Book",
-			),
-		"PageContact" => array(
-			"title" => "page-contact",
-			"link" => "/Contact",
-			),
-		"PageOffers" => array(
-			"title" => "page-offers",
-			"link" => "/Offers",
-			),
-		"PageGallery" => array(
-			"title" => "page-gallery",
-			"link" => "/Gallery",
 			),
 		);
 		
@@ -59,16 +39,7 @@ abstract class PageBase
 	{
 		$this->mSmarty = new Smarty();
 
-		$this->mSmarty->registerPlugin(
-			"function",
-			"message", 
-			array(
-				"Message", 
-				"smartyGetRealMessageContentWithDynamicLanguageFromUser" . 
-					"PrefsAndCookies"
-				)
-			);
-		
+
 		$this->addSystemCssJs();
 	}
 	
@@ -108,11 +79,6 @@ abstract class PageBase
 		global $cWebPath;
 		// $mStyles[] = $cWebPath . "/style/main.css";
 		
-		$this->mStyles[] = $cWebPath . '/style/svwp_style.css';
-		
-		$this->mScripts[] = $cWebPath . '/scripts/jquery.slideViewerPro.1.5.js';
-		$this->mScripts[] = $cWebPath . '/scripts/jquery.timers-1.2.js';
-		$this->mScripts[] = $cWebPath . '/scripts/imageslider.js';
 	}
 	
 	public function execute()
