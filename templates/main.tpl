@@ -2,7 +2,7 @@
         <div class="hero-unit">
           <h1>Hello!</h1>
           <p>Welcome to the brand new Solar power stats site!</p>
-          <p><a class="btn primary large" href="{$cWebPath}/index.php/Changes>Learn more &raquo;</a></p>
+          <p><a class="btn primary large" href="{$cWebPath}/index.php/Changes">Learn more &raquo;</a></p>
         </div>
 
         <div class="row">
