@@ -11,11 +11,12 @@ class PageDaily extends PageBase
 			$offset = 0;
 		}
 	
+		$realoffset = $offset * 7;
 	
 		$params = array();
 		$query = 'SELECT TIME(timestamp) AS x, generation as y FROM `solar`.`hourlydata` WHERE timestamp LIKE :yesterday;';
 
-		for ($i = -1; $i > -8; $i--) {		
+		for ($i = (-1 - $realoffset); $i > (-8 - $realoffset); $i--) {		
 			$yesterday = date("Y-m-d", mktime(0,0,0,date("m"),date("d")+ $i,date("Y"))) ;
 			$params[] = $yesterday;
 		}
