@@ -125,6 +125,14 @@ abstract class PageBase
 					$ex->getCode()
 					);
 			}
+			else
+			{
+				throw new SmartyException(
+					$ex->getMessage(),
+					$ex->getCode(),
+					$ex
+					);
+			}
 		}
 		
 		// set any HTTP headers
