@@ -28,6 +28,6 @@ class PageMain extends PageBase
 		
 		$this->mSmarty->assign('graphlist', $graphs);
 		$this->mSmarty->assign('generation', $generationlist);
-		$this->smarty->assign('content', 'MainPage.tpl');
+		$this->mSmarty->assign('content', 'MainPage.tpl');
 	}
 }
