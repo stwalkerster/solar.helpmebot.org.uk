@@ -14,7 +14,7 @@ class PageDaily extends PageBase
 			$params[] = $yesterday;
 		}
 		
-		$graphs = PageBase::createGraph($query, $params);
+		$graphs = PageBase::createGraph($query, $params, "day");
 	
 		$this->mSmarty->assign('graphlisttitle', "Last 28 days power generation");
 		$this->mSmarty->assign('graphlist', $graphs);

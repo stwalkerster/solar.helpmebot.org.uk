@@ -197,15 +197,32 @@ abstract class PageBase
 			throw new Exception();
 	}
 	
-	public static function createGraph($query, $parameters)
+	public static function createGraph($query, $parameters, $type)
 	{
 		global $gDatabase;
 		
 		$q = $gDatabase->prepare($query);
 
+		$alreadyExistsQuery = $gDatabase->prepare("SELECT `hash` FROM graphcache WHERE `type` = :type AND `data` = :data;");
+		$alreadyExistsQuery->bindParam(":type", $type);
+		
+		$insertCacheQuery = $gDatabase->prepare("INSERT INTO graphcahce VALUES (null, :type, :data, :hash);");
+		$insertCacheQuery->bindParam(":type", $type);
+
+		
 		$imagehashes = array();
 
 		foreach ($parameters as $p) {
+		
+			$alreadyExistsQuery->bindParam(":data", $p);
+			$alreadyExistsQuery->execute();
+			$data = $alreadyExistsQuery->fetchColumn();
+			if($data !== false)
+			{
+				$imagehashes[] = $data;
+				continue;
+			}
+			
 			$DataSet = new pData();
 			
 			$modP = $p . "%";
@@ -281,6 +298,10 @@ abstract class PageBase
 					$Test->drawTitle(50,22, $p,50,50,50,585);
 					$Test->Render("render/" . $chartname . ".png");
 				}
+				
+				$insertCacheQuery->bindParam(":data", $p);
+				$insertCacheQuery->bindParam(":hash", $chartname);
+				$insertCacheQuery->execute();
 			}
 		}
 
