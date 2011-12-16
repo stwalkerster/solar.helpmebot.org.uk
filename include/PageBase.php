@@ -220,7 +220,9 @@ abstract class PageBase
 
 		foreach ($parameters as $p) {
 		
-			$alreadyExistsQuery->bindParam(":data", $p . "-$w"."x$h");
+			$dataName =  $p . "-$w"."x$h"
+		
+			$alreadyExistsQuery->bindParam(":data",$dataName);
 			$alreadyExistsQuery->execute();
 			$data = $alreadyExistsQuery->fetchColumn();
 			if($data !== false)
@@ -305,7 +307,7 @@ abstract class PageBase
 					$Test->Render("render/" . $chartname . ".png");
 				}
 				
-				$insertCacheQuery->bindParam(":data", $p . "-$w"."x$h");
+				$insertCacheQuery->bindParam(":data", $dataName);
 				$insertCacheQuery->bindParam(":hash", $chartname);
 				$insertCacheQuery->execute();
 			}
