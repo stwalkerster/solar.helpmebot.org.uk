@@ -49,5 +49,8 @@ if(file_exists("config.local.php"))
 	require_once("config.local.php");
 }
 
+require_once("graph/pChart/pData.class");   
+require_once("graph/pChart/pChart.class");
+
 // Load the main hotel file
 require_once($cIncludePath . "/Hotel.php");
