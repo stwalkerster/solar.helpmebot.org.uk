@@ -290,7 +290,7 @@ abstract class PageBase
 					$Test->drawFilledRoundedRectangle(7,7,$w-7,$h-7,5,240,240,240);
 					$Test->drawRoundedRectangle(5,5,$w-5,$h-5,5,230,230,230);
 					$Test->drawGraphArea(255,255,255,TRUE);
-					$Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,45,2);
+					$Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,90,2);
 					$Test->drawGrid(4,TRUE,230,230,230,50);
 
 
