@@ -3,6 +3,6 @@
 <h2>{$graphlisttitle}</h2>
 {foreach from="$graphlist" item="graph"}
 	<h3>{$graph[1]}</h3>
-	<img src="render/{$graph[0]}.png" />
+	<img src="${cWebPath}/render/{$graph[0]}.png" />
 {/foreach}          </div>
         </div>
