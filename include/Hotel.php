@@ -22,14 +22,11 @@ class Hotel
 	<head>
 		<title>The Blackfish Hotel</title>
 		<style type="text/css">
-			img{margin:2px 3px;}
-			#content{display:block;float:left;margin-left:15px;}
 			#error{display:block;clear:both;font-size:x-small;}
 			p{margin:0px;padding:0px;}
 		</style>
 	</head>
 	<body>
-		<img src="$2$" class="style1" height="65" style="float: left" width="234" />
 		<div id="content">
 			<h1>Oops! Something went wrong!</h1>
 			<p>We'll work on fixing this for you, so why not come back later?</p>
