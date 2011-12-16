@@ -220,7 +220,7 @@ abstract class PageBase
 
 		foreach ($parameters as $p) {
 		
-			$dataName =  $p . "-$w"."x$h"
+			$dataName =  $p . "-$w"."x$h";
 		
 			$alreadyExistsQuery->bindParam(":data",$dataName);
 			$alreadyExistsQuery->execute();
