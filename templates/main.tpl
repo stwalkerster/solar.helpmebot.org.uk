@@ -1,46 +1,44 @@
         <!-- Main hero unit for a primary marketing message or call to action -->
         <div class="hero-unit">
-          <h1>Hello, world!</h1>
-          <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-          <p><a class="btn primary large">Learn more &raquo;</a></p>
+          <h1>Hello!</h1>
+          <p>Welcome to the brand new Solar power stats site!</p>
+          <p><a class="btn primary large" href="{$cWebPath}/index.php/Changes>Learn more &raquo;</a></p>
         </div>
 
-        <!-- Example row of columns -->
         <div class="row">
           <div class="span6">
-            <h2>Heading</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+            <h2>Latest daily data</h2>
+            <p>See graphs of the generation over the period of the last 7 days</p>
             <p><a class="btn" href="#">View details &raquo;</a></p>
           </div>
           <div class="span5">
-            <h2>Heading</h2>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
+            <h2>Daily data - historic</h2>
+             <p>View the graphs of the daily data going back across all time</p>
+            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
          </div>
           <div class="span5">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
+            <h2>Daily statistics</h2>
+            <p>See statistics about the daily data, best time of the day, best day, worst day, etc</p>
+            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
           </div>
         </div>
 
         <hr>
 
-        <!-- Example row of columns -->
-        <div class="row">
+         <div class="row">
           <div class="span6">
-            <h2>Heading</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
+            <h2>Latest monthly data</h2>
+            <p>See graphs of the generation over the period of the last 3 months</p>
+            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
           </div>
           <div class="span5">
-            <h2>Heading</h2>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
+            <h2>Monthly data - historic</h2>
+             <p>View the graphs of the monthly data going back across all time</p>
+            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
          </div>
           <div class="span5">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
+            <h2>Monthly statistics</h2>
+            <p>See statistics about the monthly data, best month, worst month, etc</p>
+            <p><a class="btn disabled" href="#">View details &raquo;</a></p>
           </div>
         </div>
