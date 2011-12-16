@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,11 +40,10 @@
       <div class="sidebar">
         <div class="well">
           <h4>Sidebar</h4>
-		  {*            {foreach $generation as $genitem}
-	            <h2>{$genitem@key}</h2>
+		    {foreach $generation as $genitem}
+	            <h5>{$genitem@key}</h5>
 	            <p>{$genitem}</p>
-	            <p></p>
-			{/foreach}*}
+			{/foreach}
         </div>
       </div>
       <div class="content">
