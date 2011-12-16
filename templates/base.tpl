@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{$documenttitle}</title>
+    <title>{$pagetitle}</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -12,12 +12,22 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="{$cWebPath}/bootstrap/bootstrap.css" rel="stylesheet">
 	<style type="text/css">
       body {
         padding-top: 60px;
       }
     </style>
+	
+	<!-- styles -->
+	{foreach from="$styles" item="thisstyle"}
+		<link rel="stylesheet" type="text/css" href="{$thisstyle}" />
+	{/foreach}
+	
+	<!-- scripts -->
+	{foreach from="$scripts" item="thisscript"}
+		<script src="{$thisscript}" type="text/javascript"></script>
+	{/foreach}
   </head>
 
   <body>

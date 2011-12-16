@@ -13,7 +13,7 @@ abstract class PageBase
 	protected $mSmarty;
 
 	// message containing the title of the page
-	protected $mPageTitle = "html-title";
+	protected $mPageTitle = "Solar Power Generation Statistics";
 
 	// base template to use
 	protected $mBasePage = "base.tpl";
