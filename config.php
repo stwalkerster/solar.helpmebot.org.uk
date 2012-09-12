@@ -14,7 +14,7 @@ $pparts = pathinfo($_SERVER["SCRIPT_NAME"]);
 $cWebPath = $pparts["dirname"] == "/" ? "" : $pparts["dirname"];
 
 // database details
-$cDatabaseConnectionString = 'mysql:host=dbmaster.helpmebot.org.uk;dbname=solar';
+$cDatabaseConnectionString = 'mysql:host=dbmaster.srv.stwalkerster.net;dbname=solar';
 $cDatabaseModule = "pdo_mysql";
 $cMyDotCnfFile = ".my.cnf";
 
